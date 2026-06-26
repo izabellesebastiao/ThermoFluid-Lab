@@ -21,36 +21,41 @@ def concept(num: int, subtitulo: str, titulo: str, formula_badge: str,
     )
 
     # Parte 1: cabeçalho + bullets + fórmula (sem conteúdo de texto livre problemático)
-    st.markdown(f"""
-<div class="card bg-base-200 border border-base-300 mb-4">
-  <div class="card-body p-0">
-    <div class="bg-base-300 px-4 py-3 flex items-center gap-2.5 rounded-t-2xl">
-      <div class="badge badge-info badge-outline w-7 h-7 font-bold">{num}</div>
-      <div class="flex-1">
-        <div class="text-xs opacity-50 uppercase tracking-wide">{subtitulo}</div>
-        <div class="font-semibold text-info leading-tight">{titulo}</div>
-      </div>
-      <span class="badge badge-info badge-outline font-mono whitespace-nowrap">{formula_badge}</span>
-    </div>
-    <div class="px-4 py-3.5">
-      <ul class="list-none space-y-1.5 mb-2">
-        {bullets_html}
-      </ul>
-      <div class="border-l-4 border-primary bg-base-300 px-3.5 py-2.5 rounded-r-md font-mono text-sm my-2">{formula_expr}</div>
-      <div class="text-xs opacity-50 mb-2.5">{formula_vars}</div>
-      {aviso_html}
-    </div>
-  </div>
-</div>""", unsafe_allow_html=True)
+    # Renderizado em uma única linha sem indentação: blocos HTML indentados ou
+    # com linhas em branco são interpretados pelo parser de markdown do Streamlit
+    # como blocos de código, fazendo tags de fechamento aparecerem como texto literal.
+    st.markdown(
+        f'<div class="card bg-base-200 border border-base-300 mb-4">'
+        f'<div class="card-body p-0">'
+        f'<div class="bg-base-300 px-4 py-3 flex items-center gap-2.5 rounded-t-2xl">'
+        f'<div class="badge badge-info badge-outline w-7 h-7 font-bold">{num}</div>'
+        f'<div class="flex-1">'
+        f'<div class="text-xs opacity-50 uppercase tracking-wide">{subtitulo}</div>'
+        f'<div class="font-semibold text-info leading-tight">{titulo}</div>'
+        f'</div>'
+        f'<span class="badge badge-info badge-outline font-mono whitespace-nowrap">{formula_badge}</span>'
+        f'</div>'
+        f'<div class="px-4 py-3.5">'
+        f'<ul class="list-none space-y-1.5 mb-2">{bullets_html}</ul>'
+        f'<div class="border-l-4 border-primary bg-base-300 px-3.5 py-2.5 rounded-r-md font-mono text-sm my-2">{formula_expr}</div>'
+        f'<div class="text-xs opacity-50 mb-2.5">{formula_vars}</div>'
+        f'{aviso_html}'
+        f'</div>'
+        f'</div>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
 
     # Parte 2: exemplo resolvido — st.markdown separado evita escape do conteúdo
     eq = _html.escape(ex_enunciado)
     er = _html.escape(ex_resposta)
-    st.markdown(f"""
-<div class="mockup-code text-xs -mt-2.5 mb-4">
-  <pre data-prefix=">"><code class="opacity-60">{eq}</code></pre>
-  <pre data-prefix="$"><code class="text-success">{er}</code></pre>
-</div>""", unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="mockup-code text-xs -mt-2.5 mb-4">'
+        f'<pre data-prefix=">"><code class="opacity-60">{eq}</code></pre>'
+        f'<pre data-prefix="$"><code class="text-success">{er}</code></pre>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
 
 
 def warn(texto: str) -> None:

@@ -47,6 +47,14 @@ def inject_tailwind() -> None:
     init and ignores later/external changes), its <link rel="stylesheet"> works
     immediately: browsers don't have the equivalent restriction for <link> tags
     that they have for inert innerHTML-inserted <script> tags.
+
+    The CDN's JIT engine also can't be trusted to generate utilities (e.g.
+    .grid, .grid-cols-4) for markup injected this way — Streamlit re-renders
+    its DOM on every interaction, racing the JIT's own scan/rescan, so grid
+    layouts silently collapse to block layout. Rather than depend on Tailwind
+    to generate them, the handful of grid utilities this app actually uses are
+    defined as plain hand-written CSS below, applied via a <style> tag (which,
+    like <link>, isn't inert when inserted through innerHTML).
     """
     components.html("""
         <script>
@@ -67,6 +75,20 @@ def inject_tailwind() -> None:
             daisy.type = 'text/css';
             daisy.href = 'https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css';
             doc.head.appendChild(daisy);
+
+            var style = doc.createElement('style');
+            style.id = 'grid-fallback-style';
+            style.textContent = `
+                .grid { display: grid; }
+                .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+                .gap-2 { gap: 0.5rem; }
+                .gap-3 { gap: 0.75rem; }
+                @media (max-width: 900px) {
+                    .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                }
+            `;
+            doc.head.appendChild(style);
         })();
         </script>
     """, height=0)
