@@ -4,10 +4,14 @@ import streamlit as st
 _IMG_PROF = Path(__file__).resolve().parent.parent / "assets" / "images" / "prof_introd.png"
 
 st.markdown("""
-<div class="text-center px-4 pt-10 pb-8 border-b border-base-300 mb-8">
-    <div class="text-xs font-semibold uppercase tracking-widest opacity-50 mb-3">Engenharia · Fenômenos de Transporte</div>
-    <h1 class="text-5xl font-bold mb-3">Thermo<span class="text-primary">Fluid</span> Lab</h1>
-    <p class="text-base opacity-70 leading-relaxed max-w-[520px] mx-auto mb-6">
+<div style="text-align: center; padding: 40px 16px 32px; border-bottom: 1px solid #333; margin-bottom: 32px;">
+    <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; margin-bottom: 12px;">
+        Engenharia · Fenômenos de Transporte
+    </div>
+    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 12px;">
+        Thermo<span style="color: #3b82f6;">Fluid</span> Lab
+    </h1>
+    <p style="font-size: 1rem; opacity: 0.7; line-height: 1.6; max-width: 520px; margin: 0 auto 24px;">
         Um simulador interativo para explorar os fundamentos de ciências térmicas
         e mecânica dos fluidos, com teoria, fórmulas e cálculos.
     </p>
