@@ -29,7 +29,7 @@ concept(
         formula_expr="ΔU = Q − W &nbsp;|&nbsp; ΔU = n·Cᵥ·ΔT &nbsp;|&nbsp; Cₚ = Cᵥ + R",
         formula_vars="R = 8,314 J/mol·K &nbsp;|&nbsp; Cᵥ = R/(γ−1) &nbsp;|&nbsp; γ = Cₚ/Cᵥ (N₂: γ=1,4)",
         ex_enunciado="10 mol de N₂ absorvem Q=50 kJ e realizam W=20 kJ. Qual ΔU?",
-        ex_resposta="ΔU = Q − W = 50 − 20 = 30 kJ &nbsp;|&nbsp; ΔT = 30000/(10×20,8) = 144 K",
+        ex_resposta="ΔU = Q − W = 50 − 20 = 30 kJ   ΔT = 30000/(10×20,8) = 144 K",
     )
 
 concept(

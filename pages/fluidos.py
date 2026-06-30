@@ -61,7 +61,7 @@ concept(
         formula_expr="P_abs = P_atm + ρ · g · h_efetivo &nbsp;|&nbsp; h_ef = L · sen(θ)",
         formula_vars="L (m) = leitura no tubo inclinado &nbsp;|&nbsp; θ = ângulo de inclinação",
         ex_enunciado="Manômetro de mercúrio (ρ=13600), h=0,15 m, P_atm=101325 Pa:",
-        ex_resposta="P_hid = 13600×9,81×0,15 = 20012 Pa &nbsp;|&nbsp; P_abs = 121 337 Pa ≈ 121,3 kPa",
+        ex_resposta="P_hid = 13600×9,81×0,15 = 20012 Pa  P_abs = 121 337 Pa ≈ 121,3 kPa",
         aviso="Pressão absoluta = Pressão manométrica + P_atm. Não confundir as duas!",
     )
 

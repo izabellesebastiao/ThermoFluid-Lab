@@ -41,7 +41,7 @@ concept(
         formula_expr="Q = n·Cₚ·ΔT &nbsp;|&nbsp; ΔV = nR·ΔT / P_total &nbsp;|&nbsp; Δy = ΔV / A",
         formula_vars="A (m²) = área do pistão &nbsp;|&nbsp; n = 10 mol do gás escolhido na simulação",
         ex_enunciado="Q=10 kJ, P_tot=111 kPa, A=0,05 m², n=10 mol N₂ (Cₚ=29,1 J/mol·K):",
-        ex_resposta="ΔT = 10000/(10×29,1) = 34,4 K &nbsp;|&nbsp; ΔV = 10×8,314×34,4/111000 = 0,026 m³ &nbsp;|&nbsp; Δy = 0,52 m",
+        ex_resposta="ΔT = 10000/(10×29,1) = 34,4 K  ΔV = 10×8,314×34,4/111000 = 0,026 m³   Δy = 0,52 m",
     )
 
 concept(
